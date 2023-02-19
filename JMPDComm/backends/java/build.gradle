@@ -49,7 +49,7 @@ static final def shortHash() {
 jar {
     // This puts the sources in the jar.
     from sourceSets.main.allSource
-
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
     manifest {
         final String javaVersion = System.getProperty('java.version')
         final String javaVendor = System.getProperty('java.vendor')
@@ -83,7 +83,6 @@ javadoc {
 }
 
 task javadocJar(type: Jar, dependsOn: javadoc) {
-    classifier('javadoc')
     description "Generates a archive of the " + project.name + " directory."
     group = "documentation"
     from 'build/docs/javadoc'

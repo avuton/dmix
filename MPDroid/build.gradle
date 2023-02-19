@@ -31,19 +31,15 @@ static def gitShortHash() {
 }
 
 android {
-    compileSdkVersion 31
-    buildToolsVersion '30.0.3'
+    namespace "com.namelessdev.mpdroid"
+    compileSdkVersion 33
+    buildToolsVersion '33.0.1'
 
     defaultConfig {
         minSdkVersion 21
-        targetSdkVersion 31
+        targetSdkVersion 33
         versionCode 58
         versionName "1.08 Beta 4 " + gitShortHash()
-    }
-
-    compileOptions {
-        sourceCompatibility '1.8'
-        targetCompatibility '1.8'
     }
 
     buildTypes {
@@ -124,14 +120,14 @@ dependencies {
     // Support Libraries
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     implementation 'androidx.palette:palette:1.0.0'
-    implementation 'androidx.appcompat:appcompat:1.4.1'
+    implementation 'androidx.appcompat:appcompat:1.6.1'
     implementation 'androidx.cardview:cardview:1.0.0'
-    implementation 'com.google.android.material:material:1.5.0'
+    implementation 'com.google.android.material:material:1.8.0'
     // Projects
     implementation project(':JMPDCommAndroid')
     // Libraries from maven
     implementation 'asia.ivity.android:drag-sort-listview:1.0'
-    implementation 'org.realityforge.org.jetbrains.annotations:org.jetbrains.annotations:1.7.0'
+    implementation 'org.jetbrains:annotations'
     implementation 'asia.ivity.android:drag-sort-listview-apklib:1.0'
 }
 

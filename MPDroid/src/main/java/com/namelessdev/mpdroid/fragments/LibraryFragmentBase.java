@@ -89,6 +89,10 @@ abstract class LibraryFragmentBase extends Fragment {
         tabs.setTabMode(TabLayout.MODE_SCROLLABLE);
         tabs.setupWithViewPager(mViewPager);
 
+        if (mSectionsPagerAdapter.getCount() == 1) {
+            tabs.setVisibility(View.GONE);
+        }
+
         final Toolbar toolbar = (Toolbar) view.findViewById(R.id.toolbar);
         toolbar.setTitle(R.string.app_name);
         toolbar.inflateMenu(R.menu.mpd_main_menu);

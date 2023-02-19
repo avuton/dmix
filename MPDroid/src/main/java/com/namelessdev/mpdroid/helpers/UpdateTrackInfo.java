@@ -185,7 +185,6 @@ public class UpdateTrackInfo {
                     }
 
                     mTitle = currentTrack.getTitle();
-                    mTitle = addDiscAndTrackNumber(mTitle, currentTrack);
                     setArtist(currentTrack);
                     mAlbumInfo = new AlbumInfo(currentTrack);
                 }
@@ -296,19 +295,6 @@ public class UpdateTrackInfo {
                     ", mTitle='" + mTitle + '\'' +
                     ", mTrackRating=" + mTrackRating +
                     "} " + super.toString();
-        }
-
-        private String addDiscAndTrackNumber(String title, final Music track) {
-            final int tracknum = track.getTrack();
-            final int discnum  = track.getDisc();
-            if (tracknum > - 1) {
-                title = tracknum+"] " + title;
-                if (discnum > - 1) {
-                    title = discnum+":" + title;
-                }
-                title = "[" + title;
-            }
-            return title;
         }
     }
 }

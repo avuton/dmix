@@ -23,10 +23,6 @@ android:
     - extra-android-m2repository
     - extra-android-support
 
-before_script:
-    ## We need to be able to test the compile.
-    sed -ie 's%Get_your_own_key_ugh%0%g' MPDroid/src/crashlytics/AndroidManifest.xml
-
 # This project doesn't support checkConnected, which is
 #  the default script label for the Android plugin.
 script:

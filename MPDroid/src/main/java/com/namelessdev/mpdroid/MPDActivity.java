@@ -169,7 +169,7 @@ public abstract class MPDActivity extends AppCompatActivity implements IdleSubsy
     @Override
     public void connectionConnecting() {
         debug("Connecting...");
-        launchMPD();
+
         // dismiss possible dialog
         dismissAlertDialog();
 
@@ -226,7 +226,6 @@ public abstract class MPDActivity extends AppCompatActivity implements IdleSubsy
                 Log.e(TAG, "Failed to show the connection failed alert dialog.", e);
             }
         }
-        launchMPD();
     }
 
     /**
@@ -254,66 +253,6 @@ public abstract class MPDActivity extends AppCompatActivity implements IdleSubsy
      */
     public boolean isLightThemeSelected() {
         return Tools.isLightThemeSelected(this);
-    }
-
-    /**
-     * This method checks if MPD on localhost is running.
-     *
-     * @return True if MPD on localhost is running, false otherwise.
-     */
-    private boolean isMPDRunning() {
-        final ActivityManager activityManager =
-                (ActivityManager) getSystemService(Context.ACTIVITY_SERVICE);
-        final Collection<ActivityManager.RunningAppProcessInfo> apps = new ArrayList<>();
-        apps.addAll(activityManager.getRunningAppProcesses());
-
-        boolean isRunning = false;
-        for (final ActivityManager.RunningAppProcessInfo app : apps) {
-            if (!isRunning && app.processName.equals(MPD_PACKAGE_NAME)) {
-                isRunning = true;
-            }
-        }
-
-        if (!isRunning) {
-            debug("MPD is installed and not running, attempting launch.");
-        }
-
-        return isRunning;
-    }
-
-    /**
-     * This method launches MPD if a MPD server is setup for the localhost.
-     */
-    private void launchMPD() {
-        final boolean shouldLaunch = "127.0.0.1".equals(mApp.getConnectionSettings().getServer())
-                && Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP_MR1;
-
-        if (shouldLaunch && !isMPDRunning() && Tools.isPackageInstalled(MPD_PACKAGE_NAME)) {
-            /**
-             * No delay; no matter the time given, this takes a bit.
-             */
-            final long relaunchTime = SystemClock.elapsedRealtime() +
-                    TimeUnit.SECONDS.toMillis(1L);
-            final PackageManager packageManager = getPackageManager();
-
-            if (packageManager != null) {
-                final AlarmManager alarmService =
-                        (AlarmManager) getSystemService(Context.ALARM_SERVICE);
-                final Intent restartActivity =
-                        packageManager.getLaunchIntentForPackage(getPackageName());
-                final PendingIntent relaunchMPDroid = PendingIntent.getActivity(this, 1,
-                        restartActivity, PendingIntent.FLAG_ONE_SHOT);
-
-                /**
-                 * Ready an alarm to restart MPDroid after MPD is launched.
-                 */
-                alarmService.set(AlarmManager.ELAPSED_REALTIME, relaunchTime, relaunchMPDroid);
-
-                Tools.notifyUser(R.string.launchingLocalhostMPD);
-                final Intent mpdIntent = packageManager.getLaunchIntentForPackage(MPD_PACKAGE_NAME);
-                startActivityIfNeeded(mpdIntent, 0);
-            }
-        }
     }
 
     @Override

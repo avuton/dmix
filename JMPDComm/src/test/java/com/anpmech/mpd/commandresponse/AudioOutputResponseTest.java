@@ -58,7 +58,7 @@ public class AudioOutputResponseTest extends
     @Test
     public void audioOutputResponseSizeTest() throws IOException {
         assertEquals("AudioOutput list size failed against known result.", 2L,
-                (long) instantiate(getResult()).size());
+                instantiate(getResult()).size());
     }
 
     /**

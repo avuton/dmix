@@ -53,11 +53,11 @@ public class AboutActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.about);
 
-        final ListView listView = (ListView) findViewById(android.R.id.list);
+        final ListView listView = findViewById(android.R.id.list);
 
         final LayoutInflater inflater = LayoutInflater.from(this);
         final View headerView = inflater.inflate(R.layout.about_header, listView, false);
-        final TextView versionInfo = (TextView) headerView.findViewById(R.id.text_version);
+        final TextView versionInfo = headerView.findViewById(R.id.text_version);
         versionInfo.setText(R.string.version);
         versionInfo.append(": ");
         versionInfo.append(BuildConfig.VERSION_NAME);

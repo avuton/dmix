@@ -40,11 +40,11 @@ public class StoredPlaylistDataBinder<T extends Item<T>> extends BaseDataBinder<
     public AbstractViewHolder findInnerViews(final View targetView) {
         final PlaylistViewHolder viewHolder = new PlaylistViewHolder();
 
-        viewHolder.mName = (TextView) targetView.findViewById(R.id.playlist_name);
-        viewHolder.mInfo = (TextView) targetView.findViewById(R.id.playlist_info);
-        viewHolder.mAlbumCover = (ImageView) targetView.findViewById(R.id.playlist_cover);
+        viewHolder.mName = targetView.findViewById(R.id.playlist_name);
+        viewHolder.mInfo = targetView.findViewById(R.id.playlist_info);
+        viewHolder.mAlbumCover = targetView.findViewById(R.id.playlist_cover);
         viewHolder.mCoverArtProgress =
-                (ProgressBar) targetView.findViewById(R.id.playlist_cover_progress);
+                targetView.findViewById(R.id.playlist_cover_progress);
 
         return viewHolder;
     }

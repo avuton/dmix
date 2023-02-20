@@ -136,7 +136,7 @@ public class PlaylistsFragment extends BrowseFragment<PlaylistFile> {
         final Fragment fragment =
                 Fragment.instantiate(activity, StoredPlaylistFragment.class.getName(), bundle);
 
-        bundle.putParcelable(PlaylistFile.EXTRA, (Parcelable) mItems.get(position));
+        bundle.putParcelable(PlaylistFile.EXTRA, mItems.get(position));
 
         ((ILibraryFragmentActivity) activity).pushLibraryFragment(fragment, "stored_playlist");
     }
@@ -147,7 +147,7 @@ public class PlaylistsFragment extends BrowseFragment<PlaylistFile> {
         switch (item.getItemId()) {
             case EDIT:
                 final Intent intent = new Intent(getActivity(), PlaylistEditActivity.class);
-                intent.putExtra(PlaylistFile.EXTRA, (Parcelable) mItems.get((int) info.id));
+                intent.putExtra(PlaylistFile.EXTRA, mItems.get((int) info.id));
                 startActivity(intent);
                 return true;
 

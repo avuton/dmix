@@ -515,11 +515,11 @@ abstract class BrowseFragmentBase<T extends Item<T>> extends Fragment implements
     public View onCreateView(final LayoutInflater inflater, final ViewGroup container,
             final Bundle savedInstanceState) {
         final View view = inflater.inflate(getLayoutResId(), container, false);
-        mList = (AbsListView) view.findViewById(R.id.list);
+        mList = view.findViewById(R.id.list);
         registerForContextMenu(mList);
         mList.setOnItemClickListener(this);
         mLoadingView = view.findViewById(R.id.loadingLayout);
-        mLoadingTextView = (TextView) view.findViewById(R.id.loadingText);
+        mLoadingTextView = view.findViewById(R.id.loadingText);
         mNoResultView = view.findViewById(R.id.noResultLayout);
         mLoadingTextView.setText(getLoadingText());
 
@@ -566,7 +566,7 @@ abstract class BrowseFragmentBase<T extends Item<T>> extends Fragment implements
                 final Artist artist = getArtist(mItems.get((int) info.id));
 
                 if (artist != null) {
-                    intent.putExtra(Artist.EXTRA, (Parcelable) artist);
+                    intent.putExtra(Artist.EXTRA, artist);
                     startActivityForResult(intent, -1);
                 }
                 break;
@@ -752,7 +752,7 @@ abstract class BrowseFragmentBase<T extends Item<T>> extends Fragment implements
     }
 
     protected void setupStandardToolbar(final View rootView) {
-        mToolbar = (Toolbar) rootView.findViewById(R.id.toolbar);
+        mToolbar = rootView.findViewById(R.id.toolbar);
 
         ToolbarHelper.showBackButton(this, mToolbar);
         ToolbarHelper.addSearchView(getActivity(), mToolbar);

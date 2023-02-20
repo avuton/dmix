@@ -70,10 +70,10 @@ public class AlbumDataBinder<T extends Item<T>> extends BaseDataBinder<T> {
     public AbstractViewHolder findInnerViews(final View targetView) {
         // look up all references to inner views
         final AlbumViewHolder viewHolder = new AlbumViewHolder();
-        viewHolder.mAlbumName = (TextView) targetView.findViewById(R.id.album_name);
-        viewHolder.mAlbumInfo = (TextView) targetView.findViewById(R.id.album_info);
-        viewHolder.mAlbumCover = (ImageView) targetView.findViewById(R.id.albumCover);
-        viewHolder.mCoverArtProgress = (ProgressBar) targetView
+        viewHolder.mAlbumName = targetView.findViewById(R.id.album_name);
+        viewHolder.mAlbumInfo = targetView.findViewById(R.id.album_info);
+        viewHolder.mAlbumCover = targetView.findViewById(R.id.albumCover);
+        viewHolder.mCoverArtProgress = targetView
                 .findViewById(R.id.albumCoverProgress);
         return viewHolder;
     }

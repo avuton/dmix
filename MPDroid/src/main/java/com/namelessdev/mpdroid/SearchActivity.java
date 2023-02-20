@@ -287,7 +287,7 @@ public class SearchActivity extends MPDActivity implements OnMenuItemClickListen
         final SearchResultsPagerAdapter adapter = new SearchResultsPagerAdapter();
         final ActionBar actionBar = getSupportActionBar();
 
-        mPager = (ViewPager) findViewById(R.id.pager);
+        mPager = findViewById(R.id.pager);
         mPager.setAdapter(adapter);
         mPager.addOnPageChangeListener(
                 new ViewPager.SimpleOnPageChangeListener() {
@@ -317,17 +317,17 @@ public class SearchActivity extends MPDActivity implements OnMenuItemClickListen
 
         mListArtistsFrame = findViewById(R.id.list_artists_frame);
         mNoResultArtistsView = mListArtistsFrame.findViewById(R.id.no_artist_result);
-        mListArtists = (ListView) mListArtistsFrame.findViewById(android.R.id.list);
+        mListArtists = mListArtistsFrame.findViewById(android.R.id.list);
         mListArtists.setOnItemClickListener(this);
 
         mListAlbumsFrame = findViewById(R.id.list_albums_frame);
         mNoResultAlbumsView = mListAlbumsFrame.findViewById(R.id.no_album_result);
-        mListAlbums = (ListView) mListAlbumsFrame.findViewById(android.R.id.list);
+        mListAlbums = mListAlbumsFrame.findViewById(android.R.id.list);
         mListAlbums.setOnItemClickListener(this);
 
         mListSongsFrame = findViewById(R.id.list_songs_frame);
         mNoResultSongsView = mListSongsFrame.findViewById(R.id.no_song_result);
-        mListSongs = (ListView) mListSongsFrame.findViewById(android.R.id.list);
+        mListSongs = mListSongsFrame.findViewById(android.R.id.list);
         mListSongs.setOnItemClickListener(this);
 
         mLoadingView = findViewById(R.id.loadingLayout);
@@ -459,7 +459,7 @@ public class SearchActivity extends MPDActivity implements OnMenuItemClickListen
                     final Intent intent = new Intent(this, SimpleLibraryActivity.class);
                     final Parcelable artist = Artist.byName(music.getAlbumArtistOrArtist());
                     intent.putExtra(Artist.EXTRA, artist);
-                    intent.putExtra(Album.EXTRA, (Parcelable) music.getAlbum());
+                    intent.putExtra(Album.EXTRA, music.getAlbum());
                     startActivityForResult(intent, -1);
                 }
             } else {

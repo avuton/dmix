@@ -117,9 +117,9 @@ public class SeparatedResponseTest
         final CommandResult result = CommandResultCreator.generate(
                 TestTools.FILE_SEPARATED_EMPTY_SEPARATED_RESPONSES);
         final SeparatedResponse response = instantiate(result);
-        final long size = (long) new CommandResponse(result).size();
+        final long size = new CommandResponse(result).size();
 
-        assertEquals(EMPTY_FAILURE, size, (long) response.size());
+        assertEquals(EMPTY_FAILURE, size, response.size());
     }
 
     /**
@@ -134,8 +134,8 @@ public class SeparatedResponseTest
         final SeparatedResponse response = instantiate(result);
         final CommandResponse commandResponse = new CommandResponse(result);
 
-        assertEquals("Reversed " + EMPTY_FAILURE, (long) commandResponse.size(),
-                (long) TestTools.reverseList(response).size());
+        assertEquals("Reversed " + EMPTY_FAILURE, commandResponse.size(),
+                TestTools.reverseList(response).size());
     }
 
     /**
@@ -146,7 +146,7 @@ public class SeparatedResponseTest
      */
     @Test
     public void nonSeparatedIteration() throws IOException {
-        assertEquals(NON_SEPARATED_ERROR, 1L, (long) getNonSeparatedResult().size());
+        assertEquals(NON_SEPARATED_ERROR, 1L, getNonSeparatedResult().size());
     }
 
     /**
@@ -157,7 +157,6 @@ public class SeparatedResponseTest
      */
     @Test
     public void nonSeparatedReverseIteration() throws IOException {
-        assertEquals(NON_SEPARATED_ERROR, 1L, (long)
-                TestTools.reverseList(getNonSeparatedResult()).size());
+        assertEquals(NON_SEPARATED_ERROR, 1L, TestTools.reverseList(getNonSeparatedResult()).size());
     }
 }

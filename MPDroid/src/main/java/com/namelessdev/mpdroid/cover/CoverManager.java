@@ -634,7 +634,7 @@ public final class CoverManager {
                         || o.outHeight > mCoverInfo.getCoverMaxSize()
                         || o.outWidth > mCoverInfo.getCoverMaxSize()) {
                     scale = (int) Math.pow(2.0,
-                            (double) (int) Math.round(Math.log(
+                            (int) Math.round(Math.log(
                                     (double) mCoverInfo.getCoverMaxSize() /
                                             (double) Math.max(o.outHeight, o.outWidth)) / Math
                                     .log(0.5)));

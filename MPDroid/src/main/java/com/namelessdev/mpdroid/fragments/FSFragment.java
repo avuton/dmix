@@ -200,7 +200,7 @@ public class FSFragment extends BrowseFragment {
             final Fragment fragment =
                     Fragment.instantiate(activity, FSFragment.class.getName(), bundle);
 
-            bundle.putParcelable(Directory.EXTRA, (Parcelable) Directory.byPath(path));
+            bundle.putParcelable(Directory.EXTRA, Directory.byPath(path));
             bundle.putBoolean(EXTRA_USE_BACK_STACK, useBackStack);
 
             ((ILibraryFragmentActivity) activity)
@@ -313,7 +313,7 @@ public class FSFragment extends BrowseFragment {
 
     @Override
     public void onSaveInstanceState(final Bundle outState) {
-        outState.putParcelable(Directory.EXTRA, (Parcelable) mDirectory);
+        outState.putParcelable(Directory.EXTRA, mDirectory);
         outState.putInt(SUBDIRECTORY_COUNT, mNumSubDirs);
         outState.putBoolean(EXTRA_USE_BACK_STACK, mUseBackStack);
         super.onSaveInstanceState(outState);
@@ -444,7 +444,7 @@ public class FSFragment extends BrowseFragment {
         public View getView(final int position, final View convertView,
                 final ViewGroup parent) {
             final View v = super.getView(position, convertView, parent);
-            final TextView subtext = (TextView) v.findViewById(R.id.full_path);
+            final TextView subtext = v.findViewById(R.id.full_path);
             final FilesystemTreeEntry item = getItem(position);
 
             if (item instanceof Music) {

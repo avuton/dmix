@@ -102,7 +102,7 @@ public class GenresFragment extends BrowseFragment<Genre> {
         final Fragment fragment =
                 Fragment.instantiate(getActivity(), ArtistsFragment.class.getName(), bundle);
 
-        bundle.putParcelable(Genre.EXTRA, (Parcelable) mItems.get(position));
+        bundle.putParcelable(Genre.EXTRA, mItems.get(position));
 
         ((ILibraryFragmentActivity) getActivity()).pushLibraryFragment(fragment, Artist.EXTRA);
     }

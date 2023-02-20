@@ -238,7 +238,7 @@ public class AlbumsFragment extends BrowseFragment<Album> {
     public View onCreateView(final LayoutInflater inflater, final ViewGroup container,
             final Bundle savedInstanceState) {
         final View view = super.onCreateView(inflater, container, savedInstanceState);
-        mCoverArtProgress = (ProgressBar) view.findViewById(R.id.albumCoverProgress);
+        mCoverArtProgress = view.findViewById(R.id.albumCoverProgress);
         return view;
 
     }
@@ -251,7 +251,7 @@ public class AlbumsFragment extends BrowseFragment<Album> {
         final Fragment fragment = Fragment.instantiate(activity, SongsFragment.class.getName(),
                 bundle);
 
-        bundle.putParcelable(Album.EXTRA, (Parcelable) mItems.get(position));
+        bundle.putParcelable(Album.EXTRA, mItems.get(position));
 
         // Terribly bugged
         /*if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
@@ -305,11 +305,11 @@ public class AlbumsFragment extends BrowseFragment<Album> {
     @Override
     public void onSaveInstanceState(final Bundle outState) {
         if (mArtist != null) {
-            outState.putParcelable(Artist.EXTRA, (Parcelable) mArtist);
+            outState.putParcelable(Artist.EXTRA, mArtist);
         }
 
         if (mGenre != null) {
-            outState.putParcelable(Genre.EXTRA, (Parcelable) mGenre);
+            outState.putParcelable(Genre.EXTRA, mGenre);
         }
         super.onSaveInstanceState(outState);
     }

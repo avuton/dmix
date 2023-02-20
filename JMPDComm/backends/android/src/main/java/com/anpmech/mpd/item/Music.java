@@ -111,10 +111,10 @@ public class Music extends AbstractMusic<Music> {
     public void getMediaMetadata(final MediaMetadata.Builder metadata) {
         final Album album = getAlbum();
 
-        metadata.putLong(MediaMetadata.METADATA_KEY_DISC_NUMBER, (long) getDisc())
+        metadata.putLong(MediaMetadata.METADATA_KEY_DISC_NUMBER, getDisc())
                 .putLong(MediaMetadata.METADATA_KEY_DURATION, getTime())
-                .putLong(MediaMetadata.METADATA_KEY_NUM_TRACKS, (long) getTotalTracks())
-                .putLong(MediaMetadata.METADATA_KEY_TRACK_NUMBER, (long) getTrack())
+                .putLong(MediaMetadata.METADATA_KEY_NUM_TRACKS, getTotalTracks())
+                .putLong(MediaMetadata.METADATA_KEY_TRACK_NUMBER, getTrack())
                 .putLong(MediaMetadata.METADATA_KEY_YEAR, album.getDate())
                 .putString(MediaMetadata.METADATA_KEY_ALBUM, album.getName())
                 .putString(MediaMetadata.METADATA_KEY_ALBUM_ARTIST, getAlbumArtistName())

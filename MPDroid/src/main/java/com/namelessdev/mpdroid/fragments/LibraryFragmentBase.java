@@ -69,7 +69,7 @@ abstract class LibraryFragmentBase extends Fragment {
     public View onCreateView(final LayoutInflater inflater, final ViewGroup container,
             final Bundle savedInstanceState) {
         final View view = inflater.inflate(R.layout.library_tabs_fragment, container, false);
-        mViewPager = (ViewPager) view.findViewById(R.id.pager);
+        mViewPager = view.findViewById(R.id.pager);
         if (mSectionsPagerAdapter != null) {
             mViewPager.setAdapter(mSectionsPagerAdapter);
         }
@@ -83,7 +83,7 @@ abstract class LibraryFragmentBase extends Fragment {
         });*/
 
         final Resources resources = getResources();
-        final TabLayout tabs = (TabLayout) view.findViewById(R.id.tabs);
+        final TabLayout tabs = view.findViewById(R.id.tabs);
         tabs.setTabTextColors(resources.getColor(R.color.library_tab_text_color),
                 resources.getColor(R.color.library_tab_text_color_selected));
         tabs.setTabMode(TabLayout.MODE_SCROLLABLE);
@@ -93,7 +93,7 @@ abstract class LibraryFragmentBase extends Fragment {
             tabs.setVisibility(View.GONE);
         }
 
-        final Toolbar toolbar = (Toolbar) view.findViewById(R.id.toolbar);
+        final Toolbar toolbar = view.findViewById(R.id.toolbar);
         toolbar.setTitle(R.string.app_name);
         toolbar.inflateMenu(R.menu.mpd_main_menu);
         ToolbarHelper.addStandardMenuItemClickListener(this, toolbar, null);

@@ -132,19 +132,19 @@ abstract class NowPlayingSmallFragmentBase extends Fragment implements
     public View onCreateView(final LayoutInflater inflater, final ViewGroup container,
             final Bundle savedInstanceState) {
         final View view = inflater.inflate(R.layout.now_playing_small_fragment, container, false);
-        mSongTitle = (TextView) view.findViewById(R.id.song_title);
+        mSongTitle = view.findViewById(R.id.song_title);
         mSongTitle.setSelected(true);
-        mSongArtist = (TextView) view.findViewById(R.id.song_artist);
+        mSongArtist = view.findViewById(R.id.song_artist);
         mSongArtist.setSelected(true);
-        final ImageButton buttonPrev = (ImageButton) view.findViewById(R.id.prev);
-        mButtonPlayPause = (ImageButton) view.findViewById(R.id.playpause);
-        final ImageButton buttonNext = (ImageButton) view.findViewById(R.id.next);
+        final ImageButton buttonPrev = view.findViewById(R.id.prev);
+        mButtonPlayPause = view.findViewById(R.id.playpause);
+        final ImageButton buttonNext = view.findViewById(R.id.next);
         buttonPrev.setOnClickListener(mButtonClickListener);
         mButtonPlayPause.setOnClickListener(mButtonClickListener);
         buttonNext.setOnClickListener(mButtonClickListener);
 
-        mCoverArt = (ImageView) view.findViewById(R.id.albumCover);
-        final ProgressBar coverArtProgress = (ProgressBar) view
+        mCoverArt = view.findViewById(R.id.albumCover);
+        final ProgressBar coverArtProgress = view
                 .findViewById(R.id.albumCoverProgress);
         final CoverDownloadListener coverArtListener = new AlbumCoverDownloadListener(
                 mCoverArt, coverArtProgress, false);

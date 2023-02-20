@@ -192,8 +192,8 @@ public final class MPDroidService extends Service implements
     private static Intent getPebbleIntent(final Music currentTrack) {
         final Intent intent = new Intent("com.getpebble.action.NOW_PLAYING");
 
-        intent.putExtra(Music.TAG_ARTIST, (Parcelable) currentTrack.getArtist());
-        intent.putExtra(Music.TAG_ALBUM, (Parcelable) currentTrack.getAlbum());
+        intent.putExtra(Music.TAG_ARTIST, currentTrack.getArtist());
+        intent.putExtra(Music.TAG_ALBUM, currentTrack.getAlbum());
         intent.putExtra(Music.TAG_TRACK, currentTrack.getTitle());
 
         return intent;

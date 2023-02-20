@@ -342,7 +342,7 @@ public class SongsFragment extends BrowseFragment<Music> implements
     public View onCreateView(final LayoutInflater inflater, final ViewGroup container,
             final Bundle savedInstanceState) {
         final View view = inflater.inflate(R.layout.songs, container, false);
-        mList = (AbsListView) view.findViewById(R.id.list);
+        mList = view.findViewById(R.id.list);
         registerForContextMenu(mList);
         mList.setOnItemClickListener(this);
         mList.setFastScrollEnabled(false);
@@ -351,17 +351,17 @@ public class SongsFragment extends BrowseFragment<Music> implements
         }
 
         mLoadingView = view.findViewById(R.id.loadingLayout);
-        mLoadingTextView = (TextView) view.findViewById(R.id.loadingText);
+        mLoadingTextView = view.findViewById(R.id.loadingText);
         mNoResultView = view.findViewById(R.id.noResultLayout);
         mLoadingTextView.setText(getLoadingText());
 
         final View headerView = inflater.inflate(R.layout.song_header, mList, false);
-        mCoverArt = (ImageView) view.findViewById(R.id.albumCover);
+        mCoverArt = view.findViewById(R.id.albumCover);
         if (mCoverArt != null) {
             populateViews(view);
         } else {
             populateViews(headerView);
-            mCoverArt = (ImageView) headerView.findViewById(R.id.albumCover);
+            mCoverArt = headerView.findViewById(R.id.albumCover);
         }
 
         ViewCompat.setTransitionName(mCoverArt, mViewTransitionName);
@@ -372,7 +372,7 @@ public class SongsFragment extends BrowseFragment<Music> implements
         }
 
         if (mHeaderToolbar == null) {
-            mHeaderToolbar = (Toolbar) view.findViewById(R.id.toolbar);
+            mHeaderToolbar = view.findViewById(R.id.toolbar);
         }
 
         if (mHeaderToolbar != null) {
@@ -416,7 +416,7 @@ public class SongsFragment extends BrowseFragment<Music> implements
                 final int itemId = item.getItemId();
                 if (itemId == GOTO_ARTIST) {
                     final Intent intent = new Intent(getActivity(), SimpleLibraryActivity.class);
-                    intent.putExtra(Artist.EXTRA, (Parcelable) mAlbum.getArtist());
+                    intent.putExtra(Artist.EXTRA, mAlbum.getArtist());
                     startActivityForResult(intent, -1);
                 } else {
                     mApp.getAsyncHelper().execAsync(new Runnable() {
@@ -588,7 +588,7 @@ public class SongsFragment extends BrowseFragment<Music> implements
 
     @Override
     public void onSaveInstanceState(final Bundle outState) {
-        outState.putParcelable(Album.EXTRA, (Parcelable) mAlbum);
+        outState.putParcelable(Album.EXTRA, mAlbum);
         outState.putBoolean(STATE_FIRST_REFRESH, mFirstRefresh);
         outState.putString(STATE_VIEW_TRANSITION_NAME, mViewTransitionName);
         super.onSaveInstanceState(outState);
@@ -596,12 +596,12 @@ public class SongsFragment extends BrowseFragment<Music> implements
 
     private void populateViews(final View view) {
         mTracksInfoContainer = view.findViewById(R.id.tracks_info_container);
-        mHeaderArtist = (TextView) view.findViewById(R.id.tracks_artist);
-        mHeaderAlbum = (TextView) view.findViewById(R.id.tracks_album);
-        mHeaderInfo = (TextView) view.findViewById(R.id.tracks_info);
-        mHeaderToolbar = (Toolbar) view.findViewById(R.id.toolbar);
-        mCoverArtProgress = (ProgressBar) view.findViewById(R.id.albumCoverProgress);
-        mAlbumMenu = (FloatingActionButton) view.findViewById(R.id.album_menu);
+        mHeaderArtist = view.findViewById(R.id.tracks_artist);
+        mHeaderAlbum = view.findViewById(R.id.tracks_album);
+        mHeaderInfo = view.findViewById(R.id.tracks_info);
+        mHeaderToolbar = view.findViewById(R.id.toolbar);
+        mCoverArtProgress = view.findViewById(R.id.albumCoverProgress);
+        mAlbumMenu = view.findViewById(R.id.album_menu);
     }
 
     @Override

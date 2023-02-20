@@ -188,7 +188,7 @@ abstract class NowPlayingFragmentBase extends Fragment implements
      * @return The TextView found in the {@code view}, set as selected.
      */
     private static TextView findSelected(final View view, @IdRes final int resource) {
-        final TextView textView = (TextView) view.findViewById(resource);
+        final TextView textView = view.findViewById(resource);
 
         textView.setSelected(true);
 
@@ -205,7 +205,7 @@ abstract class NowPlayingFragmentBase extends Fragment implements
      */
     private static ImageButton getEventButton(final View view, @IdRes final int resource,
             final boolean longPress) {
-        final ImageButton button = (ImageButton) view.findViewById(resource);
+        final ImageButton button = view.findViewById(resource);
         final ButtonEventHandler buttonEventHandler = new ButtonEventHandler();
 
         button.setOnClickListener(buttonEventHandler);
@@ -298,7 +298,7 @@ abstract class NowPlayingFragmentBase extends Fragment implements
                     }
                 };
 
-        final SeekBar seekBarTrack = (SeekBar) view.findViewById(R.id.progress_track);
+        final SeekBar seekBarTrack = view.findViewById(R.id.progress_track);
         seekBarTrack.setOnSeekBarChangeListener(seekBarTrackListener);
 
         return seekBarTrack;
@@ -407,7 +407,7 @@ abstract class NowPlayingFragmentBase extends Fragment implements
     private CoverAsyncHelper getCoverAsyncHelper(final View view) {
         final CoverAsyncHelper coverAsyncHelper = new CoverAsyncHelper();
         final ProgressBar coverArtProgress =
-                (ProgressBar) view.findViewById(R.id.albumCoverProgress);
+                view.findViewById(R.id.albumCoverProgress);
 
         // Scale cover images down to screen width
         coverAsyncHelper.setCoverMaxSizeFromScreen(mActivity);
@@ -626,7 +626,7 @@ abstract class NowPlayingFragmentBase extends Fragment implements
                     }
                 };
 
-        final SeekBar volumeSeekBar = (SeekBar) view.findViewById(R.id.progress_volume);
+        final SeekBar volumeSeekBar = view.findViewById(R.id.progress_volume);
         volumeSeekBar.setOnSeekBarChangeListener(seekBarListener);
 
         return volumeSeekBar;
@@ -725,9 +725,9 @@ abstract class NowPlayingFragmentBase extends Fragment implements
 
         view = inflater.inflate(viewLayout, container, false);
 
-        mTrackTime = (TextView) view.findViewById(R.id.trackTime);
-        mTrackTotalTime = (TextView) view.findViewById(R.id.trackTotalTime);
-        mVolumeIcon = (ImageView) view.findViewById(R.id.volume_icon);
+        mTrackTime = view.findViewById(R.id.trackTime);
+        mTrackTotalTime = view.findViewById(R.id.trackTotalTime);
+        mVolumeIcon = view.findViewById(R.id.volume_icon);
 
         /** These load the TextView resource, and set it as selected. */
         mAlbumNameText = findSelected(view, R.id.albumName);
@@ -737,7 +737,7 @@ abstract class NowPlayingFragmentBase extends Fragment implements
         mSongNameText.setText(R.string.notConnected);
         mYearNameText = findSelected(view, R.id.yearName);
         applyViewVisibility(mYearNameText, "enableAlbumYearText");
-        mSongRating = (RatingBar) view.findViewById(R.id.songRating);
+        mSongRating = view.findViewById(R.id.songRating);
         mSongRating.setOnRatingBarChangeListener(new RatingChangedHandler());
         mSongRating.setVisibility(View.GONE);
 
@@ -999,13 +999,13 @@ abstract class NowPlayingFragmentBase extends Fragment implements
 
         switch (itemId) {
             case POPUP_ALBUM:
-                intent.putExtra(Album.EXTRA, (Parcelable) mCurrentSong.getAlbum());
+                intent.putExtra(Album.EXTRA, mCurrentSong.getAlbum());
                 break;
             case POPUP_ALBUM_ARTIST:
-                intent.putExtra(Artist.EXTRA, (Parcelable) mCurrentSong.getAlbumArtist());
+                intent.putExtra(Artist.EXTRA, mCurrentSong.getAlbumArtist());
                 break;
             case POPUP_ARTIST:
-                intent.putExtra(Artist.EXTRA, (Parcelable) mCurrentSong.getArtist());
+                intent.putExtra(Artist.EXTRA, mCurrentSong.getArtist());
                 break;
             case POPUP_FOLDER:
                 final Directory directory = Directory.byPath(mCurrentSong.getParentDirectory());

@@ -208,7 +208,7 @@ public class MusicResponseTest extends ObjectResponseTest<Music, MusicResponse> 
          * the incoming delimiter.
          */
         assertEquals("Failed to find only one music element in " + TestTools.FILE_ROOT_LSINFO + '.',
-                1L, (long) list.size());
+                1L, list.size());
     }
 
     /**

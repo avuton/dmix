@@ -195,8 +195,8 @@ public class ArtistsFragment extends BrowseFragment<Artist> {
         final Bundle bundle = new Bundle(2);
         final Fragment fragment;
 
-        bundle.putParcelable(Artist.EXTRA, (Parcelable) mItems.get(position));
-        bundle.putParcelable(Genre.EXTRA, (Parcelable) mGenre);
+        bundle.putParcelable(Artist.EXTRA, mItems.get(position));
+        bundle.putParcelable(Genre.EXTRA, mGenre);
 
         if (settings.getBoolean(PREFERENCE_ALBUM_LIBRARY, true)) {
             fragment = Fragment.instantiate(activity, AlbumsGridFragment.class.getName(), bundle);
@@ -210,7 +210,7 @@ public class ArtistsFragment extends BrowseFragment<Artist> {
     @Override
     public void onSaveInstanceState(final Bundle outState) {
         if (mGenre != null) {
-            outState.putParcelable(Genre.EXTRA, (Parcelable) mGenre);
+            outState.putParcelable(Genre.EXTRA, mGenre);
         }
         super.onSaveInstanceState(outState);
     }

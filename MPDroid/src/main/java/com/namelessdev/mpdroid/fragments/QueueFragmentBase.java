@@ -318,7 +318,7 @@ abstract class QueueFragmentBase extends ListFragment implements StatusChangeLis
 
         mRootView = container;
         final View view = inflater.inflate(R.layout.queue_fragment, container, false);
-        mSearchView = (SearchView) view.findViewById(R.id.search);
+        mSearchView = view.findViewById(R.id.search);
         mSearchView.setOnQueryTextListener(new OnQueryTextListener() {
 
             @Override
@@ -345,7 +345,7 @@ abstract class QueueFragmentBase extends ListFragment implements StatusChangeLis
                 return true;
             }
         });
-        mList = (DragSortListView) view.findViewById(android.R.id.list);
+        mList = view.findViewById(android.R.id.list);
         mList.requestFocus();
         mList.setDropListener(mDropListener);
         mController = new DragSortController(mList);
@@ -884,10 +884,10 @@ abstract class QueueFragmentBase extends ListFragment implements StatusChangeLis
                 view = LayoutInflater.from(getContext()).inflate(
                         R.layout.queue_list_item, parent, false);
                 viewHolder = new PlayQueueViewHolder();
-                viewHolder.mArtist = (TextView) view.findViewById(android.R.id.text2);
-                viewHolder.mTitle = (TextView) view.findViewById(android.R.id.text1);
-                viewHolder.mPlay = (ImageView) view.findViewById(R.id.picture);
-                viewHolder.mAlbumCover = (ImageView) view.findViewById(R.id.cover);
+                viewHolder.mArtist = view.findViewById(android.R.id.text2);
+                viewHolder.mTitle = view.findViewById(android.R.id.text1);
+                viewHolder.mPlay = view.findViewById(R.id.picture);
+                viewHolder.mAlbumCover = view.findViewById(R.id.cover);
                 viewHolder.mCoverHelper = new CoverAsyncHelper();
                 int height = viewHolder.mAlbumCover.getHeight();
                 // If the list is not displayed yet, the height is 0.
@@ -908,7 +908,7 @@ abstract class QueueFragmentBase extends ListFragment implements StatusChangeLis
                 viewHolder.mAlbumCover.setTag(R.id.AlbumCoverDownloadListener, acd);
                 viewHolder.mAlbumCover.setTag(R.id.CoverAsyncHelper, viewHolder.mCoverHelper);
                 viewHolder.mCoverHelper.addCoverDownloadListener(acd);
-                viewHolder.mMenuButton = (ImageButton) view.findViewById(R.id.menu);
+                viewHolder.mMenuButton = view.findViewById(R.id.menu);
                 viewHolder.mMenuButton.setOnClickListener(mItemMenuButtonListener);
 
                 // Tint the overflow button if needed

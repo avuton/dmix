@@ -69,7 +69,7 @@ public class EditActivity extends AppCompatActivity implements AdapterView.OnIte
         setContentView(R.layout.activity_locale_edit);
         setResult(RESULT_CANCELED);
 
-        final ListView list = (ListView) findViewById(R.id.listView);
+        final ListView list = findViewById(R.id.listView);
         mItems = new ArrayList<>();
         mItems.add(new ActionItem(MPDControl.ACTION_TOGGLE_PLAYBACK,
                 getString(R.string.togglePlayback)));

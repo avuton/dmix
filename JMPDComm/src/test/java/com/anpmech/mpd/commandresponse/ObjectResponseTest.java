@@ -469,7 +469,7 @@ public abstract class ObjectResponseTest<T, S extends ObjectResponse<T>> {
     public void testEmptySize() throws IOException {
         final String message = "Empty response failed to equal 0";
 
-        assertEquals(message, 0L, (long) getEmptyResponse().size());
+        assertEquals(message, 0L, getEmptyResponse().size());
     }
 
     /**
@@ -512,7 +512,7 @@ public abstract class ObjectResponseTest<T, S extends ObjectResponse<T>> {
 
         final String message
                 = "Optimized size method failed to produce the same result as a typical iteration.";
-        assertEquals(message, (long) expectedSize, (long) response.size());
+        assertEquals(message, expectedSize, response.size());
     }
 
     /**

@@ -61,11 +61,11 @@ public class SongViewHolder extends AbstractViewHolder {
     public SongViewHolder(final View view) {
         super();
 
-        mTrackArtist = (TextView) view.findViewById(R.id.track_artist);
-        mTrackDuration = (TextView) view.findViewById(R.id.track_duration);
-        mTrackNumber = (TextView) view.findViewById(R.id.track_number);
-        mTrackTitle = (TextView) view.findViewById(R.id.track_title);
-        mComment = (ImageButton) view.findViewById(R.id.show_comments);
+        mTrackArtist = view.findViewById(R.id.track_artist);
+        mTrackDuration = view.findViewById(R.id.track_duration);
+        mTrackNumber = view.findViewById(R.id.track_number);
+        mTrackTitle = view.findViewById(R.id.track_title);
+        mComment = view.findViewById(R.id.show_comments);
     }
 
     /**

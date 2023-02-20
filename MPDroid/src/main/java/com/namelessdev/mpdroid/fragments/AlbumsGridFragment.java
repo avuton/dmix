@@ -47,14 +47,14 @@ public class AlbumsGridFragment extends AlbumsFragment {
     public View onCreateView(final LayoutInflater inflater, final ViewGroup container,
             final Bundle savedInstanceState) {
         final View view = inflater.inflate(R.layout.browsegrid, container, false);
-        mList = (AbsListView) view.findViewById(R.id.grid);
+        mList = view.findViewById(R.id.grid);
         registerForContextMenu(mList);
         mList.setOnItemClickListener(this);
         mLoadingView = view.findViewById(R.id.loadingLayout);
-        mLoadingTextView = (TextView) view.findViewById(R.id.loadingText);
+        mLoadingTextView = view.findViewById(R.id.loadingText);
         mNoResultView = view.findViewById(R.id.noResultLayout);
         mLoadingTextView.setText(getLoadingText());
-        mCoverArtProgress = (ProgressBar) view.findViewById(R.id.albumCoverProgress);
+        mCoverArtProgress = view.findViewById(R.id.albumCoverProgress);
 
         setupStandardToolbar(view);
 

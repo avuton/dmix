@@ -92,7 +92,7 @@ public class SeparatedListAdapter extends BaseAdapter {
 
     @Override
     public long getItemId(final int position) {
-        return (long) position;
+        return position;
     }
 
     @Override

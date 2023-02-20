@@ -109,8 +109,8 @@ public class StreamsFragment extends BrowseFragment<Stream> {
     public void addEdit(final int idx, final CharSequence streamUrlToAdd) {
         final LayoutInflater factory = LayoutInflater.from(getActivity());
         final View view = factory.inflate(R.layout.stream_dialog, null);
-        final EditText nameEdit = (EditText) view.findViewById(R.id.name_edit);
-        final EditText urlEdit = (EditText) view.findViewById(R.id.url_edit);
+        final EditText nameEdit = view.findViewById(R.id.name_edit);
+        final EditText urlEdit = view.findViewById(R.id.url_edit);
         final int streamTitle;
 
         if (idx < 0) {

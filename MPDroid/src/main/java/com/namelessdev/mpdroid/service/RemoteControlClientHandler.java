@@ -174,9 +174,9 @@ public class RemoteControlClientHandler implements AlbumCoverHandler.FullSizeCal
                                     .putString(MediaMetadataRetriever.METADATA_KEY_ARTIST,
                                             currentTrack.getArtistName())
                                     .putLong(MediaMetadataRetriever.METADATA_KEY_CD_TRACK_NUMBER,
-                                            (long) currentTrack.getTrack())
+                                            currentTrack.getTrack())
                                     .putLong(MediaMetadataRetriever.METADATA_KEY_DISC_NUMBER,
-                                            (long) currentTrack.getDisc())
+                                            currentTrack.getDisc())
                                     .putLong(MediaMetadataRetriever.METADATA_KEY_DURATION,
                                             currentTrack.getTime() * DateUtils.SECOND_IN_MILLIS)
                                     .putString(MediaMetadataRetriever.METADATA_KEY_TITLE,
@@ -274,9 +274,9 @@ public class RemoteControlClientHandler implements AlbumCoverHandler.FullSizeCal
                             .putString(MediaMetadataRetriever.METADATA_KEY_ARTIST,
                                     currentTrack.getArtistName())
                             .putLong(MediaMetadataRetriever.METADATA_KEY_CD_TRACK_NUMBER,
-                                    (long) currentTrack.getTrack())
+                                    currentTrack.getTrack())
                             .putLong(MediaMetadataRetriever.METADATA_KEY_DISC_NUMBER,
-                                    (long) currentTrack.getDisc())
+                                    currentTrack.getDisc())
                             .putLong(MediaMetadataRetriever.METADATA_KEY_DURATION,
                                     currentTrack.getTime() * DateUtils.SECOND_IN_MILLIS)
                             .putString(MediaMetadataRetriever.METADATA_KEY_TITLE,

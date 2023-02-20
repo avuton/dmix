@@ -59,8 +59,8 @@ public class SearchResultDataBinder implements SeparatedListDataBinder {
     @Override
     public void onDataBind(final Context context, final View targetView, final List<?> items,
             final Object item, final int position) {
-        final TextView text1 = (TextView) targetView.findViewById(R.id.upper_line);
-        final TextView text2 = (TextView) targetView.findViewById(R.id.lower_line);
+        final TextView text1 = targetView.findViewById(R.id.upper_line);
+        final TextView text2 = targetView.findViewById(R.id.lower_line);
         String formattedResult1 = null;
         String formattedResult2 = null;
 
@@ -70,7 +70,7 @@ public class SearchResultDataBinder implements SeparatedListDataBinder {
             formattedResult1 = music.getTitle();
             formattedResult2 = join(music.getAlbumName(), music.getArtistName());
         } else if (item instanceof Artist) {
-            formattedResult1 = ((Artist) item).toString();
+            formattedResult1 = item.toString();
         } else if (item instanceof Album) {
             final Album album = (Album) item;
             final Artist artist = album.getArtist();

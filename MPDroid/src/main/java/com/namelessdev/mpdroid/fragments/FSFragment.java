@@ -174,10 +174,6 @@ public class FSFragment extends BrowseFragment {
             final boolean rootDirectory = mDirectory.getFullPath().isEmpty();
 
             newItems = new ArrayList<>(size);
-            // Hack to add the two dot leader for parent directory
-            if (!rootDirectory) {
-                newItems.add(Directory.byPath("‥"));
-            }
             newItems.addAll(directories);
             mNumSubDirs = newItems.size(); // store number if subdirectory
             newItems.addAll(files);

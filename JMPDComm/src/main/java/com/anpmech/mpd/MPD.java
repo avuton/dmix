@@ -429,7 +429,7 @@ public class MPD {
             final boolean play) {
         final CommandQueue commandQueue = new CommandQueue();
 
-        commandQueue.add(MPDPlaylist.loadCommand(databasePlaylist.getName()));
+        commandQueue.add(MPDPlaylist.loadCommand(databasePlaylist.getFullPath()));
 
         add(commandQueue, replace, play);
     }
